@@ -8,6 +8,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
  - Express Js
  - Mysql
 
+## Instalación
+
+1. Clonar proyecto.
+ ```bash
+ git clone https://github.com/matiassingers/awesome-readme.git
+ ```
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
