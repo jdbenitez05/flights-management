@@ -1,0 +1,59 @@
+<div class="container">
+	<div class="card">
+		<div class="card-body">
+			<div class="col-md-12">
+				<h3>Listado de vuelos disponibles</h3>
+			</div>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="card item" style="margin-bottom: 10px;" *ngFor="let vuelo of vuelos">
+		<div class="card-body">
+			<div class="col-md-12">
+				<div class="row">
+
+					<div class="col-md-2">
+						{{vuelo.codigo}}
+						<br>
+						<i class="fa fa-plane" aria-hidden="true"></i>
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+							<div class="col-md-12">
+								<span>
+									{{vuelo.ciudad_origen}}
+								</span>
+								-
+								<span>
+									{{vuelo.ciudad_destino}}
+								</span>
+							</div>
+							<div class="col-md-12">
+								Salida: <span>{{vuelo.salida | date:'medium' }}</span>
+							</div>
+							<div class="col-md-12">
+								Llegada: <span>{{vuelo.llegada | date:'medium' }}</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2">
+						Asientos disponibles: {{vuelo.capacidad}}
+					</div>
+					<div class="col-md-2">
+						<div class="float-right">
+							<span>
+								$50.000
+							</span>
+							<br>
+							<a class="btn btn-success" [routerLink]="[{outlets: { modal: ['reserve', vuelo.idvuelo] }}]">
+								Reservar
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

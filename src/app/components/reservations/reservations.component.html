@@ -1,0 +1,125 @@
+<div class="modal-backdrop" style="background-color: #0000007a;">
+</div>
+<div class="modal modal-2 animated fadeInDown" tabindex="-1" role="dialog" style="display: block; overflow-y: auto;">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+
+				<div class="col-md-12" style="text-align: center;">
+					<h3>Reservar vuelo</h3>
+				</div>
+				<br>
+
+				<div class="col-md-12">
+
+					<div class="col-md-12">
+						<strong>{{vuelo.codigo}}</strong>
+						{{vuelo.ciudad_origen}} - {{vuelo.ciudad_destino}}
+					</div>
+					<br>
+					<div class="col-md-12" style="text-align: center;">
+						<strong>
+							Total:
+							<h4>
+								$50.000
+							</h4>
+						</strong>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="group">
+						<!-- <input type="text" [(ngModel)]="documento" required [readonly]="viewCliente"> -->
+						<input type="text" [(ngModel)]="documento" required>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Documento</label>
+					</div>
+				</div>
+
+				<div class="col-md-12" *ngIf="viewCliente">
+					<form margin-top (submit)="logIn()" [formGroup]="formReservation">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="group">
+									<input type="text" formControlName="nombres" required>
+									<span class="highlight"></span>
+									<span class="bar"></span>
+									<label>Nombres</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="group">
+									<input type="text" formControlName="apellidos" required>
+									<span class="highlight"></span>
+									<span class="bar"></span>
+									<label>Apellidos</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="group">
+									<input type="text" formControlName="correo" required>
+									<span class="highlight"></span>
+									<span class="bar"></span>
+									<label>Correo</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="group">
+									<input type="text" formControlName="telefono" required>
+									<span class="highlight"></span>
+									<span class="bar"></span>
+									<label>Telefono</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="group">
+									<input type="date" formControlName="fechanacimiento" required>
+									<span class="highlight"></span>
+									<span class="bar"></span>
+									<label>Fecha de nacimiento</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="group">
+									<input type="number" formControlName="asientos" required>
+									<span class="highlight"></span>
+									<span class="bar"></span>
+									<label>No de asientos</label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+
+			<div class="modal-footer">
+				<div class="col-md-12">
+					<button class="btn btn-default" (click)="cancelar()" *ngIf="!viewCliente">
+						Cancelar
+					</button>
+
+					<button class="btn btn-default" (click)="viewCliente = !viewCliente" *ngIf="viewCliente">
+						Volver
+					</button>
+
+					<button *ngIf="!viewCliente" class="btn btn-primary float-right" [disabled]="_loadingCli || documento == '' || documento.length < 6"
+					 (click)="completeForm()">
+						<i *ngIf="_loadingCli" class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+						Continuar
+					</button>
+
+					<button *ngIf="viewCliente" class="btn btn-primary float-right" [disabled]="_loadingReserva || formReservation.invalid" (click)="reservar()">
+						<i *ngIf="_loadingReserva" class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+						Reservar
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

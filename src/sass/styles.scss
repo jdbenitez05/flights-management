@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
+html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+
+input.ng-invalid.ng-touched.ng-dirty{
+    color: rgb(202, 65, 65)  !important;
+}
+
+input.ng-invalid.ng-touched{
+    border-color: rgb(202, 65, 65)  !important;
+}
