@@ -12,30 +12,25 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1. Clonar proyecto.
  ```bash
- git clone https://github.com/matiassingers/awesome-readme.git
+ git clone https://github.com/jdbenitez05/flights-management.git
  ```
+ 
+ 2. Instalar dependencias.
+ ```bash
+  npm install
+ ```
+ 
+ 3. Importar base de datos.
+> En el repositorio actual se encuentra el archivo db.sql, el cual contiene los scripts para la generación de la base de datos con sus respectivas tablas, datos y procedimientos almacenados.
 
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ 4. Correr proyecto
+ - Para el Back-end
+ ```bash
+  node server/server.js localhost:3000
+ ```
+ - Para el Frond-end
+ ```bash
+  ng serve -o
+ ```
+ 
