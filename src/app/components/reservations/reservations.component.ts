@@ -71,7 +71,7 @@ export class ReservationsComponent implements OnInit {
 					let clients = resp.data[0];
 
 					if(clients.length){
-						this.cliente = clients[0];
+						this.loadCliente(clients[0]);
 					}else{
 						this.cliente = new client();
 						//Cliente no registrado
@@ -92,6 +92,20 @@ export class ReservationsComponent implements OnInit {
 		}
 	}
 
+	public loadCliente(objCliente: any){
+		this.cliente = objCliente;
+
+		let fecha = moment(this.cliente.fecha_nacimiento).format('YYYY-MM-DD');
+
+		console.log('fecha: ', fecha);
+
+		this.formReservation.controls.nombres.setValue(this.cliente.nombres);
+		this.formReservation.controls.apellidos.setValue(this.cliente.apellidos);
+		this.formReservation.controls.correo.setValue(this.cliente.correo);
+		this.formReservation.controls.telefono.setValue(this.cliente.telefono);
+		this.formReservation.controls.fechanacimiento.setValue(fecha);
+	}
+
 	public reservar(){
 		if(this.formReservation.valid){
 			let body = this.formReservation.value;
@@ -100,9 +114,12 @@ export class ReservationsComponent implements OnInit {
 			this.flightProv.putReservation(body, this.vueloid, this.cliente.idcliente, body.asientos).subscribe(response => {
 				console.log(response);
 				this._loadingReserva = false;
-			});
 
-			this._loadingReserva = false;
+				//Mensaje de reserva Realizada con exito
+				alert('Reserva realizada con exito');
+				// Close modal
+				this.cancelar();
+			});
 		}else{
 			//Mensaje Por favor complete el formulario 
 		}

@@ -1,5 +1,38 @@
 <app-header></app-header>
 <br>
-<app-search></app-search>
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <!-- <div class="col-md-12">
+                <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    Vuelos
+                </a>
+            </div> -->
+
+            <div class="col-md-12">
+                <div class="divbreadcrumbs" routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    <a class="breadcrumbs" routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        Buscar vuelos
+                    </a>
+                </div>
+
+                &emsp;
+
+                <div class="divbreadcrumbs" routerLink="./reservas" routerLinkActive="active">
+                    <a class="breadcrumbs" routerLink="./reservas" routerLinkActive="active">
+                        Consultar reservas
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br>
+</div>
+
+<router-outlet></router-outlet>
+<!-- <app-search></app-search> -->
 
 <router-outlet name="modal"></router-outlet>

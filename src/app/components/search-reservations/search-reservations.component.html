@@ -1,5 +1,30 @@
 <div class="container">
-	
+
+	<div class="card">
+		<div class="card-body">
+
+			<div class="row">
+				<div class="col-md-3">
+					<div class="group" style="margin-bottom: 0px !important">
+						<input type="text" [(ngModel)]="documento" required>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Documento</label>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<button class="btn btn-primary" [disabled]="_loading" (click)="getReservas();">
+						<i *ngIf="_loading" class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+						Consultar
+					</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<br>
 
 	<div class="card item" style="margin-bottom: 10px;" *ngFor="let vuelo of vuelos">
 		<div class="card-body">
@@ -38,10 +63,10 @@
 							<span>
 								$50.000
 							</span>
-							<br>
+							<!-- <br>
 							<a class="btn btn-success" [routerLink]="[{outlets: { modal: ['reserve', vuelo.idvuelo] }}]">
 								Reservar
-							</a>
+							</a> -->
 						</div>
 					</div>
 				</div>

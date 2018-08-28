@@ -10,13 +10,15 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SearchReservationsComponent } from './components/search-reservations/search-reservations.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		HeaderComponent,
 		SearchComponent,
-		ReservationsComponent
+		ReservationsComponent,
+		SearchReservationsComponent
 	],
 	imports: [
 		BrowserModule,

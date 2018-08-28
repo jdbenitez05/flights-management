@@ -94,6 +94,31 @@ app.get('/api/getClient/:doc', function (req, res) {
     });
 });
 
+app.get('/api/getReservas/:doc', function (req, res) {
+    // res.send('response with param: ' + req.params.doc);
+    connection.query('call getReservas("' + req.params.doc + '")', function (err, rows, fields) {
+        let response;
+
+        if (err) {
+            // res.send('error' + err);
+            // throw err;
+            response = {
+                data: null,
+                message: 'Error: ' + err,
+                status: false
+            }
+        } else {
+            response = {
+                data: rows,
+                message: 'Ok',
+                status: true
+            }
+        }
+
+        res.send(response);
+    });
+});
+
 app.post('/api/postReservation/', function (req, res) {
 
     let idcliente = req.body.idcliente;
@@ -110,18 +135,28 @@ app.post('/api/postReservation/', function (req, res) {
 
             idcliente = rows[0][0].last_id;
 
-            var query2 = 'call insertReserva('+idcliente+', '+form.idvuelo+', '+form.asientos+')';
-            connection.query(query2, function(err, rows, fields){
+            var query2 = 'call insertReserva(' + idcliente + ', ' + form.idvuelo + ', ' + form.asientos + ')';
+            connection.query(query2, function (err, rows, fields) {
                 if (err) {
                     res.send('error' + err);
                     throw err;
                 }
 
                 res.send('true');
-            }); 
+            });
+        });
+    } else {
+        var query2 = 'call insertReserva(' + idcliente + ', ' + form.idvuelo + ', ' + form.asientos + ')';
+        connection.query(query2, function (err, rows, fields) {
+            if (err) {
+                res.send('error' + err);
+                throw err;
+            }
+
+            res.send('true');
         });
     }
-    
+
     // res.send(form);
 });
 

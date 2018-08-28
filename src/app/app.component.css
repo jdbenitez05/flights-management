@@ -1,0 +1,20 @@
+div.divbreadcrumbs{
+    float: left;
+    padding-left: 15px;
+}
+
+div.divbreadcrumbs.active{
+    border-left: 3px solid white;
+}
+
+div.divbreadcrumbs + div.divbreadcrumbs{
+    margin-left: 15px;
+}
+
+
+.breadcrumbs{
+    margin: 15px 0px 15px 8px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+    font-size: 0.8em;
+    font-weight: 100;
+}
